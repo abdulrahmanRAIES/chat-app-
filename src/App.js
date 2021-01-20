@@ -20,8 +20,8 @@ function AuthStack() {
 function MainStack(){
   return(
     <Tab.Navigator>
-    <Tab.Screen name="Mesajlar" component={Messages} />
-    <Tab.Screen name="Kayıtar" component={Favorites}/>
+    <Tab.Screen name="Messages" component={Messages} />
+    <Tab.Screen name="Favorites" component={Favorites}/>
   </Tab.Navigator>
   )
 }
@@ -29,7 +29,7 @@ function App() {
  
   return (
     <NavigationContainer>
-     <Stack.Navigator initialRouteName={hasSession ? 'MainStack' : 'AuthStack'}>
+     <Stack.Navigator initialRouteName={hasSession ? 'MainStack' : 'AuthStack'} screenOptions={{header: () => null}}>
        <Stack.Screen name="AuthStack" component={AuthStack}  />
        <Stack.Screen name="MainStack" component={MainStack} />
      </Stack.Navigator>
