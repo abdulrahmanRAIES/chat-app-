@@ -6,17 +6,28 @@ const screenSize = Dimensions.get("window")
 
 const message_styles = StyleSheet.create({
     container : {
-      marginTop:20
+      marginTop:20,
+      flex:1
     },
     text : {
         fontSize:17,
+        paddingTop:10,
+        fontStyle:"italic"
+    },
+    text_title:{
+      fontSize:20,
         fontWeight:"bold",
-        paddingTop:10
+    },
+    text_view:{
+     flexDirection:"row",
+     justifyContent:"space-between"
     },
     container_2 : {
       backgroundColor:'#fff59d',
       borderRadius:20,
-      padding:10  
+      padding:10,
+      
+      
     },
     text_2 : {
         flexDirection:"row-reverse",

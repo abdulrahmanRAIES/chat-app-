@@ -4,7 +4,11 @@ import {styles} from "./styles"
 
 export default function Input({onAdd}) {
   const [text, setText] = useState('');
-
+  function add(){
+    if (text!==""){
+      onAdd(text)
+    }
+  }
   return (
     <View style={styles.container}>
       <TextInput
@@ -12,7 +16,7 @@ export default function Input({onAdd}) {
         style={styles.input}
         onChangeText={(value) => setText(value)}
       />
-      <Button title="Ekle"   onPress={() => onAdd(text)} />
+      <Button title="Ekle"   onPress={() => add()} />
     </View>
   );
 }

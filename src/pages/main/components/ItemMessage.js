@@ -1,24 +1,45 @@
 import React from 'react';
-import {View, TouchableOpacity, Text, StyleSheet,Button,Dimensions} from 'react-native';
-import Icon from "react-native-vector-icons/MaterialIcons"
+import {
+  View,
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+  Button,
+  Dimensions,
+} from 'react-native';
+// import Icon from "react-native-vector-icons/MaterialIcons"
+import moment from 'moment';
+import {message_styles} from './styles';
 
-import {message_styles} from "./styles"
-
-export default function ItemMessage({item,add}) {
+export default function ItemMessage({item, add}) {
+  function emailMinus() {
+    if (item.email.includes('@gmail.com')) {
+      return item.email.replace('@gmail.com', '');
+    }
+    if (item.email.includes('@mail.com')) {
+      return item.email.replace('@mail.com', '');
+    }
+  }
   return (
     <View style={message_styles.container}>
-      
-    <View style={message_styles.container_2}>
-        <Text style={message_styles.text}>{item.email}</Text>
-        <Text style={message_styles.text}>{item.text}</Text>
-        <View style={message_styles.text_2}>
-           
-            <TouchableOpacity onPress={() =>add(item)}>
-            <Text>Add to favorite</Text>
-            </TouchableOpacity>
-            
+      <View style={message_styles.container_2}>
+        <View style={message_styles.text_view}>
+          <View style={{flexDirection: 'column'}}>
+            <Text style={message_styles.text_title}>{emailMinus()}</Text>
+            <Text style={message_styles.text}>{item.text}</Text>
+          </View>
+          <Text>
+            {' '}
+            {moment(`${item.time}`, 'MMMM Do YYYY, h:mm:ss a').fromNow()}{' '}
+          </Text>
         </View>
+
+        <View style={message_styles.text_2}>
+          <TouchableOpacity onPress={() => add(item)}>
+            <Text>Add to favorite</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
     </View>
-</View>
   );
 }
