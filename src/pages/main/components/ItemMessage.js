@@ -7,7 +7,7 @@ import {
   Button,
   Dimensions,
 } from 'react-native';
-// import Icon from "react-native-vector-icons/MaterialIcons"
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import moment from 'moment';
 import {message_styles} from './styles';
 
@@ -35,9 +35,7 @@ export default function ItemMessage({item, add}) {
         </View>
 
         <View style={message_styles.text_2}>
-          <TouchableOpacity onPress={() => add(item)}>
-            <Text>Add to favorite</Text>
-          </TouchableOpacity>
+          <Icon name="heart"  color="#039be5" size={30} onPress={() => add(item)} />
         </View>
       </View>
     </View>

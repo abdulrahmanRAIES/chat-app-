@@ -1,4 +1,5 @@
 import React from 'react';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {NavigationContainer} from "@react-navigation/native"
 import {createStackNavigator} from "@react-navigation/stack"
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs"
@@ -19,7 +20,16 @@ function AuthStack() {
 }
 function MainStack(){
   return(
-    <Tab.Navigator>
+    <Tab.Navigator
+    screenOptions={({route}) => ({
+      tabBarIcon: ({focused, color}) =>
+        generateIcon(focused, color, route),
+      tabBarLabel: () => null,
+    })}
+    tabBarOptions={{
+      activeTintColor: '#fff59d',
+      inactiveTintColor: 'gray',
+    }}>
     <Tab.Screen name="Messages" component={Messages} />
     <Tab.Screen name="Favorites" component={Favorites}/>
   </Tab.Navigator>
@@ -38,3 +48,17 @@ function App() {
 }
 
 export default App;
+function generateIcon(focused, color, route) {
+  let iconName;
+  switch (route.name) {
+    case 'Messages':
+      iconName = focused ? 'message' : 'message-outline';
+      break;
+    case 'Favorites':
+      iconName = focused ? 'heart' : 'heart-outline';
+      break;
+    default:
+      break;
+  }
+  return <Icon name={iconName} color={color} size={30} />;
+}

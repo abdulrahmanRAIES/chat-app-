@@ -1,22 +1,32 @@
 import React, {useState} from 'react';
 import {View, TextInput, Button, StyleSheet} from 'react-native';
-import {styles} from "./styles"
-
+import {styles} from './styles';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 export default function Input({onAdd}) {
   const [text, setText] = useState('');
-  function add(){
-    if (text!==""){
-      onAdd(text)
+  function add() {
+    if (text !== '') {
+      onAdd(text);
+      setText("")
     }
   }
   return (
     <View style={styles.container}>
-      <TextInput
-        placeholder="Ekle bir şeyler.."
-        style={styles.input}
-        onChangeText={(value) => setText(value)}
+      <View style={styles.input_container}>
+        <TextInput
+          placeholder="Ekle bir şeyler.."
+          style={styles.input}
+          onChangeText={(value) => setText(value)}
+          value={text}
+        />
+      </View>
+      <Icon
+        name="send"
+        color="#039be5"
+        size={25}
+        onPress={() => add()}
+        style={styles.icon}
       />
-      <Button title="Ekle"   onPress={() => add()} />
     </View>
   );
 }

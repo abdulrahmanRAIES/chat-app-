@@ -14,7 +14,7 @@ export default function ItemFavorite({item}) {
     <View style={message_styles.container}>
       
     <View style={message_styles.container_2}>
-        <Text style={message_styles.text}>{emailMinus()}</Text>
+        <Text style={message_styles.text_title}>{emailMinus()}</Text>
         <Text style={message_styles.text}>{item.text}</Text>
         <View style={message_styles.text_2}>
                    
