@@ -20,13 +20,17 @@ const message_styles = StyleSheet.create({
     },
     text_view:{
      flexDirection:"row",
-     justifyContent:"space-between"
+     justifyContent:"space-between",
+     borderBottomWidth:1,
+      borderColor:"gray"
+  
+
     },
     container_2 : {
       backgroundColor:'#fff59d',
       borderRadius:20,
       padding:10,
-      
+
       
     },
     text_2 : {
