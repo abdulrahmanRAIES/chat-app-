@@ -13,16 +13,7 @@ import moment from 'moment';
 import {message_styles} from './styles';
 
 export default function ItemMessage({item, add}) {
-  /*
-  function emailMinus() {
-    if (item.email.includes('@gmail.com')) {
-      return item.email.replace('@gmail.com', '');
-    }
-    if (item.email.includes('@mail.com')) {
-      return item.email.replace('@mail.com', '');
-    }
-  }
-  */
+ 
   return (
     <View style={message_styles.container}>
       <View style={message_styles.container_2}>

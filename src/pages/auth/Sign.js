@@ -41,7 +41,7 @@ if(response){
         <TextInput
           autoCapitalize="none"
           style={styles.input}
-          placeholder="Email.."
+          placeholder="Enter Email.."
           onChangeText={(value) => setEmail(value)}
         />
         <TextInput

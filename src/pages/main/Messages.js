@@ -13,7 +13,6 @@ function Messages() {
       .ref('public')
       .on('value', (snapshot) => {
         const data = snapshot.val();
-        //console.log(data);
         if (!data) {
           return;
         }
@@ -26,7 +25,7 @@ function Messages() {
       .ref('public')
       .push({
         text: item,
-        email: auth().currentUser.email.split('@gmail.com'||'@yahoo.com'||'@mail.com'),
+        email: auth().currentUser.email.split('@mail.com'||'@gmail.com'),
         time: moment().format('MMMM Do YYYY, h:mm:ss a'),
       });
   }

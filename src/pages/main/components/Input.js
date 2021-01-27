@@ -14,7 +14,7 @@ export default function Input({onAdd}) {
     <View style={styles.container}>
       <View style={styles.input_container}>
         <TextInput
-          placeholder="Ekle bir şeyler.."
+          placeholder="Add something.."
           style={styles.input}
           onChangeText={(value) => setText(value)}
           value={text}
